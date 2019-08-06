@@ -43,8 +43,8 @@
 	background-color: #fff;
 }
 #firstSelect p{line-height:25px;color: #999;font-size:12px;}
-#startDate{border:0;position: absolute;left: 0;margin: 0 auto;width: 50%;font-size: 16px;color: #05c0ad;text-align: center;}
-#endDate{border:0;position: absolute;right: 0;margin:auto 0;width:50%;font-size: 16px;color: #05c0ad;text-align: center;}
+#startDate{border:0;position: absolute;left: 0;margin: 0 auto;width: 50%;font-size: 16px;color: #039be5;text-align: center;}
+#endDate{border:0;position: absolute;right: 0;margin:auto 0;width:50%;font-size: 16px;color: #039be5;text-align: center;}
 .mask_calendar {
 	width: 100%;
 	height: 100%;

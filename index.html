@@ -1,89 +1,285 @@
 <!doctype html>
 <html>
-
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,initial-scale=1.0,width=device-width" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
     <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
-    <title>Hello APP</title>
-    <link rel="stylesheet" type="text/css" href="./css/api.css" />
-    <style type="text/css">
-        html,
-        body {
-            height: 100%;
+    <title>酒店预订</title>
+    <link rel="stylesheet" type="text/css" href="./css/api.css"/>
+    <link rel="stylesheet" type="text/css" href="./css/style.css"/>
+    <link rel="stylesheet" type="text/css" href="./lib/aui-20170109-v2.1/css/aui.css">
+    <link rel="stylesheet" type="text/css" href="./lib/aui-20170109-v2.1/css/aui-slide.css">
+    <link rel="stylesheet" type="text/css" href="./lib/date/css/calendar.css">
+    <link rel="stylesheet" type="text/css" href="./lib/date/css/style.css">
+    <style>
+        body{
+            background: #eee;
         }
-
-        .wrap {
-            display: -webkit-box;
-            -webkit-box-orient: vertical;
-            -webkit-flex-flow: column;
+       #wrap{
+           background: #eee;
+       }
+        #formContent{
+            width: 90%;
+            padding: 10px 0;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px #888888;
+            margin:20px auto 10px;
+            }
+        nav{
+            position: relative;
+            padding-bottom: 50px;
         }
+        .h-list{
 
-        header {
-            height: 44px;
-            width: 100%;
-            text-align: center;
-            background-color: #81a9c3;
+        }
+        .h-item{
+            list-style: none;
+            padding: 0 10px;
+        }
+        .h-list-item-inner{
+            padding: 5px 10px;
+            border-bottom: 1px solid #eee;
+        }
+        .h-list-item-inner>div{
+            display: inline-block;
+        }
+        .h-list-item-label-icon{
+
+        }
+        .h-list-item-input{
+
+        }
+        #checkinout input[type="text"]{
+            height: auto;
+        }
+        .Date_lr{
+            width: 40%;
+        }
+        #endDate,#startDate{
+            width: 40%;
+        }
+        #checkinout{
+            border: none;
+            margin: 0;
+        }
+        .mask_calendar p{
             color: #fff;
-            line-height: 44px;
-            font-size: 20px;
-        }
-
-        .flex-1 {
-            -webkit-box-flex: 1;
-            -webkit-flex: 1;
-        }
-
-        footer {
-            height: 30px;
-            width: 100%;
-            background-color: #81a9c3;
-            color: white;
-            line-height: 30px;
-            text-align: center;
         }
     </style>
 </head>
-
-<body class="wrap">
-    <header>APICloud</header>
-    <section class="flex-1">
-
-    </section>
-    <footer>Copyright &copy;<span id="year"></span></footer>
+<body>
+<div id="wrap">
+    <nav>
+        <div id="aui-slide">
+             <div class="aui-slide-wrap" >
+                <div class="aui-slide-node bg-dark">
+                    <img src="image/ht_1.1427146.jpg" />
+                </div>
+                <div class="aui-slide-node bg-dark">
+                    <img src="image/ht_2.762f9cc.jpg" />
+                </div>
+                <div class="aui-slide-node bg-dark">
+                    <img src="image/ht_3.6db7bb1.jpg" />
+                </div>
+            </div>
+            <div class="aui-slide-page-wrap"><!--分页容器--></div>
+        </div>
+        <div id="formContent">
+            <div class="aui-content aui-margin-b-15">
+                <ul class="h-list" style="">
+                    <li class="h-item">
+                        <div class="h-list-item-inner" style="padding-left: 25px">
+                            <div class="h-list-item-label-icon" style="color: #039be5">
+                                <i class="aui-iconfont aui-icon-location"></i>
+                            </div>
+                            <div class="h-list-item-input">
+                                <input type="text" placeholder="城市" readonly onclick="" id="cityInput" value="青岛">
+                            </div>
+                        </div>
+                    </li>
+                    <li class="h-item">
+                        <div class="h-list-item-inner">
+                            <div id="checkinout">
+                                <div id="firstSelect" style="width:100%;">
+                                    <div class="Date_lr" style="float:left;">
+                                        <P>入住</p>
+                                        <input id="startDate" type="text" value=""style="" readonly>
+                                    </div>
+                                    <div class="Date_lr" style="float:right;">
+                                        <p>离店</p>
+                                        <input id="endDate" type="text" value="" style="" readonly>
+                                    </div>
+                                    <span class="span21">共<span class="NumDate">1</span>晚</span>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="h-item">
+                        <div class="h-list-item-inner" style="padding-left: 25px">
+                            <div class="h-list-item-input">
+                                <input type="text" placeholder="关键字" onclick="" id="keyInput">
+                            </div>
+                        </div>
+                    </li>
+                    <li class="h-item">
+                        <div class="aui-list-item-inner aui-list-item-center aui-list-item-btn aui-margin-t-15">
+                            <div class="aui-btn aui-btn-info aui-btn-block">千淘</div>
+                        
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="mask_calendar">
+        <div class="calendar"></div>
+    </div>
+   <footer class="aui-bar aui-bar-tab" id="footer">
+    <div class="aui-bar-tab-item aui-active" tapmode>
+        <i class="aui-iconfont aui-icon-home"></i>
+        <div class="aui-bar-tab-label">首页</div>
+    </div>
+    <div class="aui-bar-tab-item" tapmode>
+        <i class="aui-iconfont aui-icon-menu"></i>
+        <div class="aui-bar-tab-label">订单</div>
+    </div>
+    <div class="aui-bar-tab-item" tapmode>
+        <div class="aui-dot"></div>
+        <i class="aui-iconfont aui-icon-my"></i>
+        <div class="aui-bar-tab-label">个人中心</div>
+    </div>
+</footer>
+</div>
 </body>
-<script type="text/javascript" src="./script/api.js"></script>
-<script type="text/javascript">
-    apiready = function() {
-        //输出Log，Log将显示在APICloud Studio控制台
-        console.log("Hello World! Hello APICloud!");
-
-        var header = $api.dom('header'); // 获取 header 标签元素
-        var footer = $api.dom('footer'); // 获取 footer 标签元素
-
-        // 1.修复开启沉浸式效果带来的顶部Header与手机状态栏重合的问题，最新api.js方法已支持适配iPhoneX；
-        // 2.默认已开启了沉浸式效果 config.xml中 <preference name="statusBarAppearance" value="true"/>
-        // 3.沉浸式效果适配支持iOS7+，Android4.4+以上版本
-        var headerH = $api.fixStatusBar(header);
-        // 最新api.js为了适配iPhoneX增加的方法，修复底部Footer部分与iPhoneX的底部虚拟横条键重叠的问题；
-        var footerH = $api.fixTabBar(footer);
-
-        api.openFrame({
-            name: 'main',
-            url: 'html/main.html',
-            bounces: true,
-            rect: { // 推荐使用Margin布局，用于适配屏幕的动态变化
-                marginTop: headerH, // main页面距离win顶部的高度
-                marginBottom: footerH, // main页面距离win底部的高度
-                w: 'auto' // main页面的宽度 自适应屏幕宽度
-            }
-        });
-
-        // 获取当前年份时间，并加载显示到页面
-        var year = $api.byId('year');
-        year.innerHTML = new Date().getFullYear();
-    };
-
-</script>
-
 </html>
+<script type="text/javascript" src="script/api.js"></script>
+<script type="text/javascript" src="lib/aui-20170109-v2.1/script/api.js"></script>
+<script type="text/javascript" src="lib/aui-20170109-v2.1/script/aui-tab.js"></script>
+<script type="text/javascript" src="lib/aui-20170109-v2.1/script/aui-slide.js"></script>
+<script type="text/javascript" src="lib/date/js/jq.min.js"></script>
+<script type="text/javascript" src="lib/date/js/date.js"></script>
+<script type="text/javascript" src="lib/vue/vue.min.js"></script>
+<script type="text/javascript" src="script/common.js"></script>
+<script type="text/javascript">
+    $(function(){
+        var b=new Date();
+        var ye=b.getFullYear();
+        var mo=b.getMonth()+1;
+        mo = mo<10?"0"+mo:mo;
+        var da=b.getDate();
+        da = da<10?"0"+da:da;
+        $('#startDate').val(ye+'-'+mo+'-'+da);
+        b=new Date(b.getTime()+24*3600*1000);
+        var ye=b.getFullYear();
+        var mo=b.getMonth()+1;
+        mo = mo<10?"0"+mo:mo;
+        var da=b.getDate();
+        da = da<10?"0"+da:da;
+        $('#endDate').val(ye+'-'+mo+'-'+da);
+    });
+    apiready = function () {
+         
+    };
+    var slide3 = new auiSlide({
+            container:document.getElementById("aui-slide"),
+            "width":'100%',
+            "height":240,
+            "speed":500,
+            "autoPlay": 3000, //自动播放
+            "loop":true,
+            "pageShow":true,
+            "pageStyle":'dot',
+            'dotPosition':'center'
+    });
+    $('#firstSelect').on('click',function () {
+        $('.mask_calendar').show();
+        // $('#keyInput').val($('.mask_calendar').height());
+    });
+    $('.mask_calendar').on('click',function (e) {
+        if(e.target.className == "mask_calendar"){
+            $('.calendar').slideUp(200);
+            $('.mask_calendar').fadeOut(200);
+        }
+    });
+    $('#firstSelect').calendarSwitch({
+        selectors : {
+            sections : ".calendar"
+        },
+        index : 4,      //展示的月份个数
+        animateFunction : "slideToggle",        //动画效果
+        controlDay:true,//知否控制在daysnumber天之内，这个数值的设置前提是总显示天数大于90天
+        daysnumber : "90",     //控制天数
+        comeColor : "#1E90FF",       //入住颜色
+        outColor : "#1E90FF",      //离店颜色
+        comeoutColor : "#F0F8FF",        //入住和离店之间的颜色
+        callback :function(){//回调函数
+            $('.mask_calendar').fadeOut(200);
+            var startDate = $('#startDate').val();  //入住的天数
+            var endDate = $('#endDate').val();      //离店的天数
+            var NumDate = $('.NumDate').text();    //共多少晚
+            // console.log(startDate);
+            // console.log(endDate);
+            // console.log(NumDate);
+            //下面做ajax请求
+            //show_loading();
+            /*$.post("demo.php",{startDate:startDate, endDate:endDate, NumDate:NumDate},function(data){
+                if(data.result==1){
+                    //成功
+                } else {
+                    //失败
+                }
+            });*/
+        }  ,
+        comfireBtn:'.comfire'//确定按钮的class或者id
+    });
+    partCom();
+    //根据屏幕宽度匹配字体大小
+    function partCom() {
+        var winH = $(window).height();
+        $('#formContent').css('height', winH - 330);
+    };
+    var app = new Vue({
+        el: '#wrap',
+        data: {
+            searchParams:{
+                cityName:'',//城市名称
+                checkinDate:'',//入住时间
+                checkoutDate:'',//离店时间
+                keywords:'',//关键词
+                cityId:'',//城市id
+                pageNum:1,//
+                pageSize:10,//
+                starLevels: "", // 星级，【数字格式字符串】，支持以逗号隔开多选查询
+                regionIds: "", // 行政区id组，【格式见左】，支持以逗号隔开多选查询；数值来源于【行政区列表】id字段
+                landmarkIds: "", // 商圈id组，【格式见左】，支持以逗号隔开多选查询；数值来源于【商圈列表】id字段
+                brandIds: "", // 品牌id组，【格式见左】，支持以逗号隔开多选查询；数值来源于【品牌列表】id字段
+                payClass: 2// 支付类别，【数字格式】，1现付2月结，（未来做现付酒店入口时【必传】）: "1,2,3", // 品牌id组，【格式见左】，支持以逗号隔开多选查询；数值来源于【品牌列表】id字段
+            }
+        },
+        computed: {},
+        beforeMount: function() {},
+        mounted: function() {
+            this.auiSlideModular()
+        },
+        created: function() {
+
+        },
+        watch: {},
+        methods: {
+            auiSlideModular:function () {
+                var slide3 = new auiSlide({
+                    container:document.getElementById("aui-slide"),
+                    "width":'100%',
+                    "height":240,
+                    "speed":500,
+                    "autoPlay": 3000, //自动播放
+                    "loop":true,
+                    "pageShow":true,
+                    "pageStyle":'dot',
+                    'dotPosition':'center'
+                });
+            }
+        }
+    });
+</script>
